@@ -19,4 +19,6 @@ jobs:
   trigger: pull_request
   branch: main
   targets:
-  - fedora-all
+    - fedora-37-aarch64
+    - fedora-37-x86_64
+    #  - fedora-all
