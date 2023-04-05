@@ -1,8 +1,8 @@
 %bcond_without   check
 %bcond_without   python
 Name:            uftrace
-Version:         0.13
-Release:         16%{?dist}
+Version:         uftrace.0.13.16
+Release:         16.20230405214725493493.branch.0.13.16.0.ga344225b%{?dist}
 
 Summary:         Function graph tracer for C and C++ with many features
 # https://github.com/namhyung/uftrace/issues/1343
@@ -11,7 +11,7 @@ Summary:         Function graph tracer for C and C++ with many features
 %undefine        _hardened_build
 License:         GPL-2.0-only
 Url:             https://github.com/namhyung/uftrace
-Source:          https://github.com/namhyung/%{name}/archive/v%{version}/%{name}-%{version}.tar.gz
+Source:          uftrace-uftrace.0.13.16.tar.gz
 Patch1:          gethostbyname.patch
 
 ExclusiveArch:   x86_64 %ix86 %arm aarch64
@@ -53,7 +53,7 @@ even seamless function graph tracing of used kernel functions.
   execution timing of the program) and records nanosecond-exact timestamps.
 
 %prep
-%setup -q
+%setup -q -n uftrace-uftrace.0.13.16
 %patch -P1 -p1
 cd tests
 sed -i 's|python$|python3|' runtest.py
@@ -198,5 +198,8 @@ tail -12 test-report.txt |
 %license COPYING
 
 %changelog
+* Wed Apr 5 2023 Bernhard Kaindl <contact@bernhard.kaindl.dev> - uftrace.0.13.16-16.20230405214725493493.branch.0.13.16.0.ga344225b
+- Development snapshot (a344225b)
+
 * Fri Mar 24 2023 Bernhard Kaindl <contact@bernhard.kaindl.dev> 0.13-16
 - Initial rpm for Fedora and CentOS Stream
